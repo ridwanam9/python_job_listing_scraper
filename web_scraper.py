@@ -25,7 +25,7 @@ with open("jobs.csv", "w", newline="", encoding="utf-8") as file:
 
     # 5. Mengambil data dari setiap kartu
     for job in job_cards:
-        title_element = job.select_one("h2.title")
+        title_element = job.select_one("h2.title") # mengembalikan element html contoh:<h2 class="title is-5">Physiological scientist</h2>
         company_element = job.select_one("h3.company")
         location_element = job.select_one("p.location")
 
@@ -36,7 +36,7 @@ with open("jobs.csv", "w", newline="", encoding="utf-8") as file:
         )
 
         # Ekstrak teks dan URL
-        title = title_element.get_text(strip=True) if title_element else ""
+        title = title_element.get_text(strip=True) if title_element else "" # mengambil text dari element html yang diambil
         company = company_element.get_text(strip=True) if company_element else ""
         location = location_element.get_text(strip=True) if location_element else ""
         job_url = apply_link.get("href", "") if apply_link else ""
